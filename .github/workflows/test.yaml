@@ -1,0 +1,14 @@
+name: Java CI (Test PetClinic)
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: "Setup Java 25 (Đúng phiên bản)"
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '25'
+    - name: "Run Maven Tests"
+      run: ./mvnw clean package
